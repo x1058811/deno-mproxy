@@ -108,7 +108,7 @@ async function main() {
 
     if (!remoteHost || !remotePort) {
         console.error("FATAL: Environment variables REMOTE_HOST and REMOTE_PORT must be set.");
-        Deno.exit(1);
+        throw new Error("Environment variables REMOTE_HOST and REMOTE_PORT must be set.");
     }
     
     const xorKeyBytes = new TextEncoder().encode(xorKey);
