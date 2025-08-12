@@ -103,7 +103,7 @@ async function main() {
     // --- 从环境变量读取配置 ---
     const listenPort = parseInt(Deno.env.get("PORT") || "8080"); // Deno Deploy 会设置 PORT
     const remoteHost = "xzq2021.dynv6.net";
-    const remotePort = 1194;
+    const remotePort = 8090;
     const xorKey = Deno.env.get("XOR_KEY") || ""; // 可选的XOR密钥
 
     // 移除了对 REMOTE_HOST 和 REMOTE_PORT 的环境变量检查，因为它们现在是硬编码的。
