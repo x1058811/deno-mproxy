@@ -102,8 +102,8 @@ async function handleConnection(clientConn, { remoteHost, remotePort, xorKeyByte
 async function main() {
     // --- 从环境变量读取配置 ---
     const listenPort = parseInt(Deno.env.get("PORT") || "8080"); // Deno Deploy 会设置 PORT
-    const remoteHost = parseInt(Deno.env.get("REMOTE_HOST") || "xzq2021.dynv6.net");
-    const remotePort = parseInt(Deno.env.get("REMOTE_PORT") || "1194");
+    const remoteHost = Deno.env.get("REMOTE_HOST");
+    const remotePort = Deno.env.get("REMOTE_PORT");
     const xorKey = Deno.env.get("XOR_KEY") || ""; // 可选的XOR密钥
 
     if (!remoteHost || !remotePort) {
