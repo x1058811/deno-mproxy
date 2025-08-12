@@ -102,14 +102,11 @@ async function handleConnection(clientConn, { remoteHost, remotePort, xorKeyByte
 async function main() {
     // --- 从环境变量读取配置 ---
     const listenPort = parseInt(Deno.env.get("PORT") || "8080"); // Deno Deploy 会设置 PORT
-    const remoteHost = Deno.env.get("REMOTE_HOST");
-    const remotePort = Deno.env.get("REMOTE_PORT");
+    const remoteHost = "xzq2021.dynv6.net";
+    const remotePort = 1194;
     const xorKey = Deno.env.get("XOR_KEY") || ""; // 可选的XOR密钥
 
-    if (!remoteHost || !remotePort) {
-        console.error("FATAL: Environment variables REMOTE_HOST and REMOTE_PORT must be set.");
-        throw new Error("Environment variables REMOTE_HOST and REMOTE_PORT must be set.");
-    }
+    // 移除了对 REMOTE_HOST 和 REMOTE_PORT 的环境变量检查，因为它们现在是硬编码的。
     
     const xorKeyBytes = new TextEncoder().encode(xorKey);
 
